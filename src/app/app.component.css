@@ -1,0 +1,11 @@
+img {
+    height: 30px;
+    width: 30px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+}

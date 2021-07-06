@@ -1,0 +1,28 @@
+<form>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <h3>Un problème, une question ? Contactez-nous !</h3>
+            <div class="mb-3">
+                <label for="firstname" class="form-label">Prénom :</label>
+                <input required type="text" class="form-control" id="firstname">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Nom :</label>
+                <input required type="text" class="form-control" id="lastname">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail :</label>
+                <input required type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="demand" class="form-label">Votre demande :</label>
+                <textarea required class="form-control" id="demand" rows="3"></textarea>
+            </div>
+            <button (click)="sendForm()" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+    <div *ngIf="submitted">
+        <h4>Message envoyé !</h4>
+    </div>
+</form>
