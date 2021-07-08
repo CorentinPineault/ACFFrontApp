@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactForm } from 'src/app/models/contact-form/contact-form';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,7 +6,7 @@ import { ContactForm } from 'src/app/models/contact-form/contact-form';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  cf: ContactForm = {
+  cf: any =  {
     firstname: '',
     lastname: '',
     email: '',

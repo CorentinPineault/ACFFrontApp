@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from '../components/index/index.component';
@@ -11,7 +11,10 @@ import { DataPolicyComponent } from '../components/data-policy/data-policy.compo
 import { ConnectionFormComponent } from '../components/connection-form/connection-form.component';
 import { DocumentManagementComponent } from '../components/document-management/document-management.component';
 import { DragndropDirective } from './directives/dragndrop/dragndrop.directive';
-import { ProfileComponent } from 'src/components/profile/profile.component';
+import { ProfileComponent } from '../components/profile/profile.component';
+import { CalendarComponent } from '../components/calendar/calendar.component';
+import { MessagingComponent } from '../components/messaging/messaging.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,10 +27,14 @@ import { ProfileComponent } from 'src/components/profile/profile.component';
     ConnectionFormComponent,
     DocumentManagementComponent,
     DragndropDirective,
-    ProfileComponent],
+    ProfileComponent,
+    CalendarComponent,
+    MessagingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

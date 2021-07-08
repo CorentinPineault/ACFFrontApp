@@ -1,0 +1,28 @@
+<div class="row">
+    <div id="message-action" class="col">
+        <form>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="msgObject" placeholder="Objet du message">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="msgContent" rows="8" placeholder="Contenu du message"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <div id="message-list" class="col">
+        <div *ngIf="!messageList">
+            <p>Aucun message !</p>
+        </div>
+        <div *ngIf="messageList">
+            <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let msg of messageList"
+                >
+                  {{ msg.subject }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

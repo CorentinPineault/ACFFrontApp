@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactForm } from 'src/app/models/contact-form/contact-form';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-connection-form',
@@ -7,13 +7,36 @@ import { ContactForm } from 'src/app/models/contact-form/contact-form';
   styleUrls: ['./connection-form.component.css']
 })
 export class ConnectionFormComponent implements OnInit {
- 
+  form: any = {
+    email: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    const { email, password } = this.form;
 
+    //this.authService.login(email, password).subscribe(
+    //  data => {
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        window.location.reload();
+    //  },
+    //  err => {
+     //   this.errorMessage = err.error.message;
+    //    this.isLoginFailed = true;
+    //  }
+   // );
+  }
 
+  reloadPage(): void {
+    window.location.reload();
+  }
 }
