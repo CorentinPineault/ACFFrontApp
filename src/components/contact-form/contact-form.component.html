@@ -1,28 +1,29 @@
-<form>
-    <div class="submit-form">
-        <div *ngIf="!submitted">
-            <h3>Un problème, une question ? Contactez-nous !</h3>
+
+<div class="submit-form">
+    <div *ngIf="!submitted">
+        <h3>Un problème, une question ? Contactez-nous !</h3>
+        <form novalidate name="form" (ngSubmit)="f.form.valid && sendForm()" #f="ngForm">
             <div class="mb-3">
                 <label for="firstname" class="form-label">Prénom :</label>
-                <input required type="text" class="form-control" id="firstname">
+                <input required type="text" class="form-control" id="firstname" [(ngModel)]="form.firstname" #email="ngModel">
             </div>
             <div class="mb-3">
                 <label for="lastname" class="form-label">Nom :</label>
-                <input required type="text" class="form-control" id="lastname">
+                <input required type="text" class="form-control" id="lastname" [(ngModel)]="form.lastname" #email="ngModel">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail :</label>
-                <input required type="email" class="form-control" id="email">
+                <input required type="email" class="form-control" id="email" [(ngModel)]="form.email" #email="ngModel">
             </div>
             <div class="mb-3">
                 <label for="demand" class="form-label">Votre demande :</label>
-                <textarea required class="form-control" id="demand" rows="3"></textarea>
+                <textarea required class="form-control" id="demand" rows="3" [(ngModel)]="form.demand" #email="ngModel"></textarea>
             </div>
-            <button (click)="sendForm()" type="submit" class="btn btn-primary">Submit</button>
-        </div>
-
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
+    
     <div *ngIf="submitted">
         <h4>Message envoyé !</h4>
     </div>
-</form>
+</div>

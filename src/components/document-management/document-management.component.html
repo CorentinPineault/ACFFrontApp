@@ -1,12 +1,12 @@
 <div class="container" appDnd (fileDropped)="onFileDropped($event)">
-	<input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+	<input type="file" accept=".doc,.docx,.pdf,.odt" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
 	<h3>Glissez vos fichiers ici</h3>
 	<h3>ou</h3>
 	<label for="fileDropRef">Cliquez pour naviguer</label>
 </div>
 
-<div class="files-list">
-	<div class="single-file" *ngFor="let file of files; let i = index">
+<div class="upload-list">
+	<div class="single-file" *ngFor="let file of uploadFiles; let i = index">
 		<img src="../../assets/img/ic-file.svg" width="45px" alt="file">
 		<div class="info">
 		<h4 class="name">

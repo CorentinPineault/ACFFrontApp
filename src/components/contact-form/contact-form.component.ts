@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  cf: any =  {
+  form: any =  {
     firstname: '',
     lastname: '',
     email: '',
-    msg: ''
+    demand: ''
   }
   
   submitted = false;
@@ -22,10 +22,10 @@ export class ContactFormComponent implements OnInit {
 
   sendForm(): void {
     const data = {
-      firstname: this.cf.firstname,
-      lastname: this.cf.lastname,
-      email: this.cf.email,
-      msg: this.cf.msg
+      firstname: this.form.firstname,
+      lastname: this.form.lastname,
+      email: this.form.email,
+      demand: this.form.msg
     };
     
     this.submitted = true;

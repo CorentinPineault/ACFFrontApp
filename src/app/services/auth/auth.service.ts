@@ -21,6 +21,10 @@ export class AuthService {
     }, httpOptions);
   }
 
+  logout(){
+    
+  }
+
   //register(username: string, email: string, password: string): Observable<any> {
   //}
 }

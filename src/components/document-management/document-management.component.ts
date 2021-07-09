@@ -5,12 +5,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./document-management.component.css']
 })
 export class DocumentManagementComponent implements OnInit {
-  files: any[] = [];
-
+  uploadFiles: any[] = [];
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.loadDocuments();
   }
+
+  loadDocuments(){}
 
   /**
    * on file drop handler
@@ -24,8 +27,8 @@ export class DocumentManagementComponent implements OnInit {
    */
   fileBrowseHandler(event: Event) {
     const target = event.target as HTMLInputElement;
-    const files = target.files as FileList;
-    this.prepareFilesList(files);
+    const uploadFiles = target.files as FileList;
+    this.prepareFilesList(uploadFiles);
   }
 
   /**
@@ -33,10 +36,12 @@ export class DocumentManagementComponent implements OnInit {
    * @param index (File index)
    */
   deleteFile(index: number) {
-    this.files.splice(index, 1);
+    this.uploadFiles.splice(index, 1);
   }
 
-  upload(){}
+  upload(){
+
+  }
 
   /**
    * Convert Files list to normal array list
@@ -45,7 +50,7 @@ export class DocumentManagementComponent implements OnInit {
   prepareFilesList(files: FileList) {
     Array.from(files).forEach(item => {
       // item.progress = 0;
-      this.files.push(item);
+      this.uploadFiles.push(item);
     })
   }
 
