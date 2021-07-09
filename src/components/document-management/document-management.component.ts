@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { saveAs } from 'file-saver';
+
 @Component({
   selector: 'app-document-management',
   templateUrl: './document-management.component.html',
@@ -13,13 +15,22 @@ export class DocumentManagementComponent implements OnInit {
     this.loadDocuments();
   }
 
-  loadDocuments(){}
+  loadDocuments(){
+    
+  }
 
   /**
    * on file drop handler
    */
   onFileDropped($event: any) {
+    this.upload($event);
     this.prepareFilesList($event);
+  }
+
+  upload(files: FileList) {
+    Array.from(files).forEach(item => {
+      
+    })
   }
 
   /**
@@ -37,10 +48,6 @@ export class DocumentManagementComponent implements OnInit {
    */
   deleteFile(index: number) {
     this.uploadFiles.splice(index, 1);
-  }
-
-  upload(){
-
   }
 
   /**
