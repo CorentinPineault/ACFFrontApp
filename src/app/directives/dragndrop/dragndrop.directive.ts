@@ -1,11 +1,6 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
-export interface FileHandle {
-  file: File,
-  url: SafeUrl
-}
-
 @Directive({
   selector: '[appDragndrop]'
 })

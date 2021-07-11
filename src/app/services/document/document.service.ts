@@ -1,21 +1,30 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const api = "http://localhost:8080/documents";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentService {
 
-  constructor(private http: HttpClient) {}
+  private baseUrl = 'http://localhost:8080';
 
-  upload(id:number, file: File){
-    return this.http.post<File>(`${api}/${id}`, file);
+  constructor(private http: HttpClient) { }
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
   }
 
-  load(id:number): Observable<any>{
-    return this.http.get<any>(`${api}/${id}`);
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/files`);
   }
 }
