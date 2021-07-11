@@ -20,6 +20,10 @@ export class DocumentManagementComponent implements OnInit {
   constructor(private docService: DocumentService) { }
 
   ngOnInit(): void {
+    this.loadFiles();
+  }
+
+  loadFiles(): void {
     this.fileInfos = this.docService.getFiles();
   }
 
@@ -28,6 +32,7 @@ export class DocumentManagementComponent implements OnInit {
     this.progressInfos = [];
     this.files = event.target.files;
     this.uploadFiles()
+    this.loadFiles();
   }
   
 
@@ -40,14 +45,14 @@ export class DocumentManagementComponent implements OnInit {
           if (event.type === HttpEventType.UploadProgress) {
             this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
           } else if (event instanceof HttpResponse) {
-            const msg = 'Uploaded the file successfully: ' + file.name;
+            const msg = 'Fichier envoyé : ' + file.name;
             this.message.push(msg);
             this.fileInfos = this.docService.getFiles();
           }
         },
         (err: any) => {
           this.progressInfos[idx].value = 0;
-          const msg = 'Could not upload the file: ' + file.name;
+          const msg = "Erreur d'envoi : " + file.name;
           this.message.push(msg);
           this.fileInfos = this.docService.getFiles();
         });
