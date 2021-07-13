@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DocumentService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8080/document';
 
   constructor(private http: HttpClient) { }
 

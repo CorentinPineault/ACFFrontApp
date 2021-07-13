@@ -15,6 +15,7 @@ import { ProfileComponent } from '../components/profile/profile.component';
 import { CalendarComponent } from '../components/calendar/calendar.component';
 import { MessagingComponent } from '../components/messaging/messaging.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientListComponent } from '../components/client-list/client-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     DragndropDirective,
     ProfileComponent,
     CalendarComponent,
-    MessagingComponent],
+    MessagingComponent,
+    ClientListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

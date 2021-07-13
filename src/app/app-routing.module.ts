@@ -10,6 +10,7 @@ import { LegalMentionsComponent } from 'src/components/legal-mentions/legal-ment
 import { MessagingComponent } from 'src/components/messaging/messaging.component';
 import { ProfileComponent } from 'src/components/profile/profile.component';
 import { ConnectionFormComponent } from 'src/components/connection-form/connection-form.component';
+import { ClientListComponent } from 'src/components/client-list/client-list.component';
 const routes: Routes = [
   { path: '', component: IndexComponent},
   { path: 'accessbility', component: AccessibilityComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'document-management', component: DocumentManagementComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'messaging', component: MessagingComponent},
-  { path: 'calendar', component: CalendarComponent}
+  { path: 'calendar', component: CalendarComponent},
+  { path: 'client-list', component: ClientListComponent }
 ];
 
 @NgModule({

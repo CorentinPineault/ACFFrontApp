@@ -1,0 +1,11 @@
+<div class="card mt-3">
+	<div class="card-header">Liste de clients</div>
+	<ul
+	  class="list-group list-group-flush"
+	  *ngFor="let client of clientList"
+	>
+	  <li class="list-group-item">
+		<a>{{ client.firstname }} {{ client.lastname }}</a>
+	  </li>
+	</ul>
+</div>

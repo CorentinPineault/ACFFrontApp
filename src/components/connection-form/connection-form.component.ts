@@ -18,6 +18,10 @@ export class ConnectionFormComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    //if (this.tokenStorage.getToken()) {
+    //  this.isLoggedIn = true;
+    //  this.roles = this.tokenStorage.getUser().roles;
+    //}
   }
 
   onSubmit(): void {
@@ -27,7 +31,7 @@ export class ConnectionFormComponent implements OnInit {
     //  data => {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        window.location.reload();
+        //window.location.reload();
     //  },
     //  err => {
      //   this.errorMessage = err.error.message;

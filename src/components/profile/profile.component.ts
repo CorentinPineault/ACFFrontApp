@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  currentUser: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentUser = "dkdkj";
   }
 
 }
