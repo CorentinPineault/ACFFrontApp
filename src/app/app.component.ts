@@ -9,8 +9,8 @@ export class AppComponent {
   title = 'ACFFrontApp';
   private roles: string[] = [];
   isLoggedIn = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
+  //showAdminBoard = false;
+  //showModeratorBoard = false;
   username?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }

@@ -1,4 +1,7 @@
-<div class="card mt-3">
+<div class="alert alert-danger" *ngIf="!isLoggedIn">
+	Veuillez vous authentifier pour accéder à cette page.
+</div>
+<div class="card mt-3" *ngIf="isLoggedIn">
 	<div class="card-header">Liste de clients</div>
 	<ul
 	  class="list-group list-group-flush"

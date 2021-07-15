@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DocumentService } from 'src/app/services/document/document.service';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 const directoryPath = './doc_tests/'
 
@@ -14,13 +15,16 @@ export class DocumentManagementComponent implements OnInit {
   files?: FileList;
   progressInfos: any[] = [];
   message: string[] = [];
-
+  isLoggedIn = false;
   fileInfos?: Observable<any>;
 
-  constructor(private docService: DocumentService) { }
+  constructor(private docService: DocumentService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.loadFiles();
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.loadFiles();
+    }
   }
 
   loadFiles(): void {

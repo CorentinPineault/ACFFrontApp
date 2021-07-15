@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/models/client/client';
 import { ClientListServiceService } from 'src/app/services/client-list-service/client-list-service.service';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-client-list',
@@ -11,11 +12,14 @@ import { ClientListServiceService } from 'src/app/services/client-list-service/c
 })
 export class ClientListComponent implements OnInit {
   clientList?: Client[];
-
-  constructor(private cliListService: ClientListServiceService) { }
-
+  isLoggedIn = false;
+  constructor(private cliListService: ClientListServiceService, private tokenStorage: TokenStorageService) { }
+    
   ngOnInit(): void {
-    this.getClients();
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.getClients();
+    }
   }
 
   getClients(): void {
