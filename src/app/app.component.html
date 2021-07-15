@@ -5,11 +5,32 @@
         <img src="../assets/img/WMF_safe.png" class="d-inline-block align-text-top"/>
         ACF Audit
       </a>
-      <div class="navbar-nav me-auto">
-        <a routerLink="/document-management" class="nav-link">Documents</a>
-        <a routerLink="/messaging" class="nav-link">Messages</a>
-      </div>
-      <a routerLink="/connection-form" class="nav-link">Connexion</a>
+      <ul class="navbar-nav mr-auto" *ngIf="isLoggedIn" routerLinkActive="active">
+        <li class="nav-item">
+          <a routerLink="/document-management" class="nav-link">Documents</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/messaging" class="nav-link">Messages</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="register">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/connection-form" class="nav-link">Connexion</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
     
       
     </div>
