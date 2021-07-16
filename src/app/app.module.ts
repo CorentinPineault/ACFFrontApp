@@ -16,6 +16,7 @@ import { CalendarComponent } from '../components/calendar/calendar.component';
 import { MessagingComponent } from '../components/messaging/messaging.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientListComponent } from '../components/client-list/client-list.component';
+import { authInterceptorProviders } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ClientListComponent } from '../components/client-list/client-list.compo
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

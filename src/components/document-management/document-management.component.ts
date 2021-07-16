@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { DocumentService } from 'src/app/services/document/document.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
-const directoryPath = './doc_tests/'
-
 @Component({
   selector: 'app-document-management',
   templateUrl: './document-management.component.html',
